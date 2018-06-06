@@ -1,0 +1,26 @@
+<div>
+  <h1>New Table</h1>
+  <table>
+    <tr *ngFor="let col of myTableData;let i = index">
+      <ng-container *ngIf="i===0">
+        <th *ngFor="let key of objectKeys(col)"> {{key | uppercase }} </th>
+      </ng-container>
+    </tr>
+    <tr *ngFor="let col of myTableData;let i = index">
+      <td *ngFor="let key of objectKeys(col)"> {{col[key]}} </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h1>Vertical Dynamic Table</h1>
+  <hr>
+
+  <table style="width:100%">
+    <tr *ngFor="let key of objectKeys(myTableData[0])">
+      <th> {{key | uppercase }} </th>
+      <ng-container>
+        <td *ngFor="let col of myTableData"> {{col[key]}} </td>
+      </ng-container>
+    </tr>
+  </table>
+</div>
